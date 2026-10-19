@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <h2>CertiTrack</h2>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+
+    <main class="dashboard">
+        <h1>Hello, {{ student.full_name }}!</h1>
+        <p>Welcome to your student dashboard.</p>
+
+        <div class="profile-card">
+            <h2>Your Profile</h2>
+            <p><strong>Student ID:</strong> {{ student.college_id }}</p>
+            <p><strong>Email:</strong> {{ student.email }}</p>
+            <p><strong>Department:</strong> {{ student.department or 'Not provided' }}</p>
+            <p><strong>Academic Year:</strong> {{ student.academic_year or 'Not provided' }}</p>
+        </div>
+
+        <div class="profile-card">
+            <h2>Your Certificates</h2>
+
+            {% if certificates %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Certificate</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for certificate in certificates %}
+                            <tr>
+                                <td>{{ certificate.certificate_name }}</td>
+                                <td>{{ certificate.certificate_type or 'General' }}</td>
+                                <td>{{ certificate.status }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>You haven't uploaded any certificates yet.</p>
+            {% endif %}
+        </div>
+    </main>
+</body>
+</html>

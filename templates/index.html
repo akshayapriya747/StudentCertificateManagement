@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Certificate Management</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <h2>CertiTrack</h2>
+        <div>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        </div>
+    </nav>
+
+    <main class="hero">
+        <p class="tagline">STUDENT DIGITAL CERTIFICATE MANAGEMENT</p>
+        <h1>Your Certificates.<br>Your Achievements.</h1>
+        <p class="description">
+            A simple and secure platform to manage, store and access
+            your academic certificates in one place.
+        </p>
+
+        <div class="buttons">
+            <a class="button" href="{{ url_for('register') }}">Get Started</a>
+            <a class="button secondary" href="{{ url_for('login') }}">Student Login</a>
+        </div>
+
+        <div class="features">
+            <div class="card">
+                <h3>Secure Storage</h3>
+                <p>Keep your academic certificate records organized.</p>
+            </div>
+            <div class="card">
+                <h3>Easy Access</h3>
+                <p>View your certificate information from your dashboard.</p>
+            </div>
+            <div class="card">
+                <h3>Quick Verification</h3>
+                <p>Support reliable verification of issued certificates.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>CertiTrack | Student Digital Certificate Management System</footer>
+</body>
+</html>

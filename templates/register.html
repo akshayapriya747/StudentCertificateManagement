@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <h2>CertiTrack</h2>
+        <a href="{{ url_for('home') }}">Home</a>
+    </nav>
+
+    <div class="form-container">
+        <h1>Create Account</h1>
+        <p>Register to manage your academic certificates.</p>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <p class="message">{{ message }}</p>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST">
+            <label>Full Name *</label>
+            <input type="text" name="full_name" required>
+
+            <label>College Student ID *</label>
+            <input type="text" name="college_id" required>
+
+            <label>Email Address *</label>
+            <input type="email" name="email" required>
+
+            <label>Password *</label>
+            <input type="password" name="password" minlength="8" required>
+
+            <label>Department</label>
+            <input type="text" name="department">
+
+            <label>Academic Year</label>
+            <select name="academic_year">
+                <option value="">Select academic year</option>
+                <option value="First Year">First Year</option>
+                <option value="Second Year">Second Year</option>
+                <option value="Third Year">Third Year</option>
+                <option value="Fourth Year">Fourth Year</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p class="form-link">
+            Already registered? <a href="{{ url_for('login') }}">Login</a>
+        </p>
+    </div>
+</body>
+</html>
